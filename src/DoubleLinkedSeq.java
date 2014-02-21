@@ -397,16 +397,17 @@ public class DoubleLinkedSeq extends DoubleNode implements Cloneable
     */
    public double getElementAtIndex(int element)
    {
-	   if(head != null)
-	   {
-		   start();
-		   for(int i = 0; i < element; i++)
-		   {
-			   advance();
-		   }
-		   return cursor.getData();
-	   }
-	   return 0.0;
+	  int count = 1;
+	  DoubleNode findData;
+	  for(findData = head; findData!= null; findData = findData.getLink())
+	  {
+		  if(count == element)
+		  {
+			  return findData.getData();
+		  }
+		  count++;
+	  }
+	  return 0.0;
    }
    
    
